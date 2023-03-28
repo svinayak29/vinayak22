@@ -1,9 +1,9 @@
 
-
+import React from "react"
 
 
 export function Button(){
-    return(
-        <Button>click me !!</Button>
-    )
+    return  <button>click me !!</button>
+       
+    
 }

@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
-import { Firstcomponent } from './firstcomponent';
-import { Secondcomponent } from './Secondcomponent';
-import { Thirdcomponent } from './Thirdcomponent';
-import {Button} from './Button'
+import { Input } from './component/Input';
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Firstcomponent/>
-        <Secondcomponent/>
-        <Thirdcomponent/>
-        <Button/>
+  const [text,setText] = useState("")
+  
+   const [error,setError] = useState(null)
 
-        
-        
-        
-      </header>
+   const handleChange = (e) => {
+    
+    if(e.target.value.length > 20){
+
+      setError("Character limit exceeded")
+    }
+
+    else{
+      setText(e.target.value);
+      setError(null);
+    }
+
+   }
+  return (
+    <div className='App'>
+
+      <Input onChange={(e) => handleChange} value = {text} />
+      
+
     </div>
-  );
+    
+  )
 }
 
-export default App;
+export default App
